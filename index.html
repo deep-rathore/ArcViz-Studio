@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ArcViz Studio — Architecture & Interior Design Chandigarh">
+    <meta property="og:title" content="ArcViz Studio">
+    <meta property="og:description" content="Architecture & Interior Design Chandigarh">
+    <title>ArcViz Studio — Architecture & Interior Design Chandigarh</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.0.45/dist/lenis.min.js" defer></script>
+    
+    <link rel="stylesheet" href="style.css">
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "ArcViz Studio",
+      "description": "Premium architecture and interior design firm in Chandigarh, Punjab",
+      "url": "https://arcvizstudio.in",
+      "telephone": "+919876543210",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "SCO 45, Sector 17",
+        "addressLocality": "Chandigarh",
+        "addressCountry": "IN"
+      },
+      "areaServed": ["Chandigarh", "Mohali", "Patiala", "Punjab"],
+      "speciality": "Architecture Design, Interior Design, 3D Visualization"
+    }
+    </script>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-logo">
+            <span class="bracket">[</span> ArcViz Studio <span class="bracket">]</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#projects">Work</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="#contact" class="nav-cta">Start a Project</a>
+        <button class="hamburger" aria-label="Menu">
+            <span></span><span></span>
+        </button>
+        <div class="mobile-overlay" id="mobileOverlay">
+            <button class="mobile-close">✕</button>
+            <nav class="mobile-nav">
+                <a href="#projects" onclick="closeMobile()">Work</a>
+                <a href="#services" onclick="closeMobile()">Services</a>
+                <a href="#process" onclick="closeMobile()">Process</a>
+                <a href="#contact" onclick="closeMobile()">Contact</a>
+            </nav>
+        </div>
+    </nav>
+
+    <section id="hero">
+        <div class="hero-fallback"></div>
+        <canvas id="hero-canvas"></canvas>
+        <div class="hero-content">
+            <div class="hero-top-label">Architecture & Interior Design</div>
+            <div class="hero-main">
+                <div class="hero-eyebrow">Est. 2018 — Chandigarh</div>
+                <h1 class="hero-headline">
+                    <span class="line">We Design</span>
+                    <span class="line">The Spaces</span>
+                    <span class="line">You Inhabit</span>
+                </h1>
+                <p class="hero-sub">Crafting spaces that resonate with purpose and precision.</p>
+                <a href="#projects" class="hero-cta">View Our Work</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat"><span class="stat-num">50+</span><span class="stat-label">Projects</span></div>
+                <div class="stat"><span class="stat-num">8</span><span class="stat-label">Years</span></div>
+                <div class="stat"><span class="stat-num">12</span><span class="stat-label">Awards</span></div>
+            </div>
+            <div class="scroll-indicator">Scroll to Explore ↓</div>
+        </div>
+    </section>
+
+    <section id="about">
+        <!-- About content -->
+    </section>
+
+    <section id="services">
+        <div class="section-header">
+            <span class="eyebrow">What We Do</span>
+            <h2 class="section-title">Our Services</h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-card" data-index="0">
+                <span class="service-num">01</span>
+                <h3 class="service-name">Architecture Design</h3>
+                <p class="service-desc">Residential and commercial structures crafted with structural integrity and aesthetic purpose.</p>
+                <span class="service-arrow">→</span>
+            </div>
+            <div class="service-card" data-index="1">
+                <span class="service-num">02</span>
+                <h3 class="service-name">Interior Design</h3>
+                <p class="service-desc">Curating atmospheres that seamlessly blend form, function, and comfort.</p>
+                <span class="service-arrow">→</span>
+            </div>
+            <div class="service-card" data-index="2">
+                <span class="service-num">03</span>
+                <h3 class="service-name">3D Visualization</h3>
+                <p class="service-desc">Immersive photorealistic renders to experience spaces before they are built.</p>
+                <span class="service-arrow">→</span>
+            </div>
+            <div class="service-card" data-index="3">
+                <span class="service-num">04</span>
+                <h3 class="service-name">Renovation</h3>
+                <p class="service-desc">Breathing new life into existing structures with modern interventions.</p>
+                <span class="service-arrow">→</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <canvas id="building-canvas"></canvas>
+        <div class="projects-content">
+            <div class="section-header">
+                <span class="eyebrow">Selected Work</span>
+                <h2 class="section-title">Our Projects</h2>
+            </div>
+            <div class="projects-list">
+                <div class="project-item" data-index="1">
+                    <span class="project-num">001</span>
+                    <div class="project-info">
+                        <h3 class="project-name">The Kapoor Residence</h3>
+                        <div class="project-meta">
+                            <span>2024</span><span class="dot">·</span>
+                            <span>Chandigarh</span><span class="dot">·</span>
+                            <span>Residential</span>
+                        </div>
+                    </div>
+                    <span class="project-tag">Luxury</span>
+                </div>
+                <div class="project-item" data-index="2">
+                    <span class="project-num">002</span>
+                    <div class="project-info">
+                        <h3 class="project-name">Vertex Commercial Hub</h3>
+                        <div class="project-meta">
+                            <span>2023</span><span class="dot">·</span>
+                            <span>Mohali</span><span class="dot">·</span>
+                            <span>Commercial</span>
+                        </div>
+                    </div>
+                    <span class="project-tag">Awarded</span>
+                </div>
+                <div class="project-item" data-index="3">
+                    <span class="project-num">003</span>
+                    <div class="project-info">
+                        <h3 class="project-name">Aura Wellness Retreat</h3>
+                        <div class="project-meta">
+                            <span>2023</span><span class="dot">·</span>
+                            <span>Kasauli</span><span class="dot">·</span>
+                            <span>Hospitality</span>
+                        </div>
+                    </div>
+                    <span class="project-tag">Featured</span>
+                </div>
+                <div class="project-item" data-index="4">
+                    <span class="project-num">004</span>
+                    <div class="project-info">
+                        <h3 class="project-name">Lumina Gallery</h3>
+                        <div class="project-meta">
+                            <span>2022</span><span class="dot">·</span>
+                            <span>Panchkula</span><span class="dot">·</span>
+                            <span>Cultural</span>
+                        </div>
+                    </div>
+                    <span class="project-tag">Public</span>
+                </div>
+                <div class="project-item" data-index="5">
+                    <span class="project-num">005</span>
+                    <div class="project-info">
+                        <h3 class="project-name">The Minimalist Loft</h3>
+                        <div class="project-meta">
+                            <span>2021</span><span class="dot">·</span>
+                            <span>Chandigarh</span><span class="dot">·</span>
+                            <span>Interior</span>
+                        </div>
+                    </div>
+                    <span class="project-tag">Design</span>
+                </div>
+                <div class="project-item" data-index="6">
+                    <span class="project-num">006</span>
+                    <div class="project-info">
+                        <h3 class="project-name">Nexus IT Park</h3>
+                        <div class="project-meta">
+                            <span>2020</span><span class="dot">·</span>
+                            <span>Mohali</span><span class="dot">·</span>
+                            <span>Corporate</span>
+                        </div>
+                    </div>
+                    <span class="project-tag">Scale</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="process">
+        <div class="process-section-inner">
+            <div class="process-header">
+                <span class="eyebrow">How We Work</span>
+                <h2 class="section-title">Our Process</h2>
+            </div>
+            <div class="process-track">
+                <div class="process-step">
+                    <span class="step-num">01</span>
+                    <h3 class="step-title">Discovery Brief</h3>
+                    <p class="step-desc">Deep listening session — understanding your lifestyle, aspirations, and spatial needs.</p>
+                </div>
+                <div class="process-step">
+                    <span class="step-num">02</span>
+                    <h3 class="step-title">Concept Design</h3>
+                    <p class="step-desc">Mood boards, sketches, and spatial concepts developed and refined with you.</p>
+                </div>
+                <div class="process-step">
+                    <span class="step-num">03</span>
+                    <h3 class="step-title">Design Development</h3>
+                    <p class="step-desc">Technical drawings, 3D visualizations, material specifications finalized.</p>
+                </div>
+                <div class="process-step">
+                    <span class="step-num">04</span>
+                    <h3 class="step-title">Construction</h3>
+                    <p class="step-desc">Site supervision, contractor coordination, quality control at every stage.</p>
+                </div>
+                <div class="process-step">
+                    <span class="step-num">05</span>
+                    <h3 class="step-title">Handover</h3>
+                    <p class="step-desc">Styled photography, documentation, and complete project handover to you.</p>
+                </div>
+            </div>
+            <div class="process-progress-bar"><div class="process-progress-fill"></div></div>
+        </div>
+    </section>
+
+    <section id="testimonials">
+        <!-- Testimonials content -->
+    </section>
+
+    <section id="contact">
+        <div class="contact-grid">
+            <div class="contact-info">
+                <span class="eyebrow">Get In Touch</span>
+                <h2 class="contact-headline">Let's Build Something Remarkable</h2>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <span class="contact-label">Email</span>
+                        <a href="mailto:studio@arcviz.in" class="contact-value">studio@arcviz.in</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">Phone</span>
+                        <span class="contact-value">+91 98765 43210</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">Studio</span>
+                        <span class="contact-value">SCO 45, Sector 17, Chandigarh</span>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form-wrap">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" required placeholder="Rajesh Sharma">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required placeholder="rajesh@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" placeholder="+91 98765 43210">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="project-type">Project Type</label>
+                            <select id="project-type">
+                                <option value="">Select type</option>
+                                <option>Residential Architecture</option>
+                                <option>Commercial Architecture</option>
+                                <option>Interior Design</option>
+                                <option>3D Visualization</option>
+                                <option>Renovation</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="budget">Budget Range</label>
+                            <select id="budget">
+                                <option value="">Select range</option>
+                                <option>Under Rs. 25 Lakhs</option>
+                                <option>Rs. 25–75 Lakhs</option>
+                                <option>Rs. 75 Lakhs – 2 Cr</option>
+                                <option>Above Rs. 2 Cr</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Tell us about your project</label>
+                        <textarea id="message" rows="4" placeholder="Brief description of your space and vision..."></textarea>
+                    </div>
+                    <div class="form-footer">
+                        <label class="consent-label">
+                            <input type="checkbox" id="consent" required>
+                            I agree to the Privacy Policy
+                        </label>
+                        <button type="submit" class="form-submit">Send Enquiry</button>
+                    </div>
+                    <div class="form-success" id="formSuccess" style="display:none">
+                        Thank you — we will be in touch within 48 hours.
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <!-- Footer content -->
+    </footer>
+
+    <script src="js/lenis-init.js" defer></script>
+    <script src="js/scene.js" defer></script>
+    <script src="js/building.js" defer></script>
+    <script src="js/animations.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
+    <script src="js/form.js" defer></script>
+</body>
+</html>
